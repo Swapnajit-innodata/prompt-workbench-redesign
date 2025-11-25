@@ -116,7 +116,7 @@ const PromptCard = ({ title, onCopy, onCopilotClick, onArrowClick, responseTitle
                   <Loader2 className="h-5 w-5 animate-spin" />
                 ) : (
                   <img 
-                    src="/copilot-icon.svg" 
+                    src={`${import.meta.env.BASE_URL}copilot-icon.svg`}
                     alt="Copilot" 
                     className="h-5 w-5"
                   />
