@@ -199,18 +199,10 @@ const ConversationView = () => {
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <div className="px-4 pb-4 space-y-4 border-t border-border pt-4">
-                    <div>
-                      <div className="font-semibold mb-2 text-sm">User Prompt</div>
-                      <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg border border-border">
-                        {conv.prompt}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-semibold mb-2 text-sm">Response</div>
-                      <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg border border-border">
-                        {conv.response}
-                      </div>
+                  <div className="px-4 pb-4 border-t border-border pt-4">
+                    <div className="font-semibold mb-2 text-sm">Response</div>
+                    <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg border border-border">
+                      {conv.response}
                     </div>
                   </div>
                 </CollapsibleContent>
