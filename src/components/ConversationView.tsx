@@ -114,56 +114,7 @@ const ConversationView = () => {
         </div>
       </div>
       
-      <div className="flex-1 mb-6 flex flex-col">
-        <h3 className="text-base font-semibold mb-4">Prompt History</h3>
-        <ScrollArea className="flex-1">
-          <div className="space-y-4">
-            {conversations.map((conv) => (
-            <Collapsible
-              key={conv.id}
-              open={expandedIds.has(conv.id)}
-              onOpenChange={() => toggleExpanded(conv.id)}
-            >
-              <div className="bg-prompt-card border border-border rounded-2xl shadow-sm">
-                <CollapsibleTrigger className="w-full">
-                  <div className="p-4 flex items-center justify-between hover:bg-muted/50 transition-colors rounded-2xl">
-                    <div className="flex-1 text-left">
-                      <div className="font-semibold mb-1">User Prompt</div>
-                      <div className="text-sm text-muted-foreground line-clamp-1">
-                        {conv.prompt}
-                      </div>
-                    </div>
-                    <ChevronDown
-                      className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
-                        expandedIds.has(conv.id) ? "transform rotate-180" : ""
-                      }`}
-                    />
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <div className="px-4 pb-4 space-y-4 border-t border-border pt-4">
-                    <div>
-                      <div className="font-semibold mb-2 text-sm">User Prompt</div>
-                      <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg">
-                        {conv.prompt}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-semibold mb-2 text-sm">Response</div>
-                      <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg">
-                        {conv.response}
-                      </div>
-                    </div>
-                  </div>
-                </CollapsibleContent>
-              </div>
-            </Collapsible>
-            ))}
-          </div>
-        </ScrollArea>
-      </div>
-
-      <div className="bg-prompt-card border border-border rounded-2xl p-4 shadow-sm">
+      <div className="bg-prompt-card border border-border rounded-2xl p-4 shadow-sm mb-6">
         <h3 className="text-base font-semibold mb-3">User Prompt</h3>
         <div className="relative">
           <Tooltip>
@@ -219,6 +170,55 @@ const ConversationView = () => {
             onKeyDown={handleKeyPress}
           />
         </div>
+      </div>
+
+      <div className="flex-1 flex flex-col min-h-0">
+        <h3 className="text-base font-semibold mb-4">Prompt History</h3>
+        <ScrollArea className="flex-1">
+          <div className="space-y-4">
+            {conversations.map((conv) => (
+            <Collapsible
+              key={conv.id}
+              open={expandedIds.has(conv.id)}
+              onOpenChange={() => toggleExpanded(conv.id)}
+            >
+              <div className="bg-prompt-card border border-border rounded-2xl shadow-sm">
+                <CollapsibleTrigger className="w-full">
+                  <div className="p-4 flex items-center justify-between hover:bg-muted/50 transition-colors rounded-2xl">
+                    <div className="flex-1 text-left">
+                      <div className="font-semibold mb-1">User Prompt</div>
+                      <div className="text-sm text-muted-foreground line-clamp-1">
+                        {conv.prompt}
+                      </div>
+                    </div>
+                    <ChevronDown
+                      className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
+                        expandedIds.has(conv.id) ? "transform rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="px-4 pb-4 space-y-4 border-t border-border pt-4">
+                    <div>
+                      <div className="font-semibold mb-2 text-sm">User Prompt</div>
+                      <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg border border-border">
+                        {conv.prompt}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-2 text-sm">Response</div>
+                      <div className="text-sm text-muted-foreground whitespace-pre-wrap bg-muted/30 p-3 rounded-lg border border-border">
+                        {conv.response}
+                      </div>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </div>
+            </Collapsible>
+            ))}
+          </div>
+        </ScrollArea>
       </div>
     </div>
   );

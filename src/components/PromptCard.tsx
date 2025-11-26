@@ -64,7 +64,7 @@ const PromptCard = ({ title, onCopy, onCopilotClick, onArrowClick, responseTitle
   const isDisabled = !promptValue.trim() || isCopilotLoading;
 
   return (
-    <div className="bg-prompt-card border border-border rounded-2xl p-6 shadow-sm flex flex-col h-full">
+    <div className="bg-prompt-card border border-border rounded-2xl p-6 shadow-sm flex flex-col h-full overflow-hidden">
       <div className="flex items-center gap-2 flex-wrap mb-6">
         <Select defaultValue="gpt-4">
           <SelectTrigger className="w-[140px] h-9">
@@ -153,11 +153,11 @@ const PromptCard = ({ title, onCopy, onCopilotClick, onArrowClick, responseTitle
       
       <div className="flex flex-col flex-1 min-h-0">
         <h3 className="text-lg font-semibold mb-3">{responseTitle || "Response"}</h3>
-        <ScrollArea className="flex-1">
+        <div className="flex-1 border border-border rounded-lg p-3 overflow-y-auto">
           <div className="text-sm text-muted-foreground whitespace-pre-wrap">
             {localResponse || responseContent || "Response will appear here..."}
           </div>
-        </ScrollArea>
+        </div>
       </div>
     </div>
   );
