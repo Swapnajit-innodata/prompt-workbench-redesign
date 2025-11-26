@@ -31,7 +31,7 @@ const ConversationView = () => {
         response: dummyResponse,
       };
       
-      setConversations([...conversations, newConversation]);
+      setConversations([newConversation, ...conversations]);
       setPromptValue("");
     }
   };
